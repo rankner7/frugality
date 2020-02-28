@@ -1,0 +1,73 @@
+:root{
+  --header_pad_tb: 0px;
+  --header_height: 60px;
+}
+div.header {
+  position: fixed;
+  width: 99%;
+  height: var(--header_height);
+  top: 0;
+  left:0.5%;
+  padding: var(--header_pad_tb) 0px;
+  border: 3px solid rgb(49, 185, 172);
+  background-color: turquoise;
+  overflow: visible; /*THIS NEEDS TO CHANGE*/
+}
+
+p{
+  font-size: xx-large;
+  padding-top: 1000px;
+  color: red;
+}
+
+div.header_partition{
+  position: absolute;
+  height: inherit;
+  top:var(--header_pad_tb);
+  --buff: 0.5%;
+  border: 1px solid red;
+}
+div.header_partition.header_left{
+  left:var(--buff);
+  width: 29%;
+}
+div.header_partition.header_right {
+  right: var(--buff);
+  width: 69%;
+}
+
+div.title_logo {
+  float:left;
+  height: 95%;
+  text-align: center;
+  width: 20%;  
+  border: 1px solid red;
+  padding: calc(var(--height)/5);
+}
+
+div.menu_links {
+  float:right;
+  height: var(--header_height);
+  text-align: center;
+  width: 12%;  
+  min-width: 100px;
+  border: 1px solid red;
+}
+
+div.menu_links:hover {
+  background-color: rgb(49, 185, 172);
+}
+
+a {
+  display: block;
+  color: white;
+  font-size: 1.5em;
+  text-decoration: none;
+  padding: 15px 0px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
