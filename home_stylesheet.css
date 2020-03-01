@@ -1,20 +1,26 @@
 :root{
   --header_pad_tb: 0px;
-  --header_height: 60px;
+  --header_height: 6vh;
+  --back_color: turquoise;
+  --bord_color: rgb(49, 185, 172);
+  --bound_box: none; /*1px solid red;*/
+
 }
 div.header {
   position: fixed;
   width: 99%;
   height: var(--header_height);
+  min-height: 40px;
   top: 0;
   left:0.5%;
   padding: var(--header_pad_tb) 0px;
-  border: 3px solid rgb(49, 185, 172);
-  background-color: turquoise;
-  overflow: hidden; /*THIS NEEDS TO CHANGE*/
+  border: 3px solid var(--bord_color);
+  background-color: var(--back_color);
+  overflow: visible; /*THIS NEEDS TO CHANGE*/
+  z-index: 100;
 }
 
-p{
+p.test{
   font-size: xx-large;
   padding-top: 1000px;
   color: red;
@@ -22,10 +28,10 @@ p{
 
 div.header_partition{
   position: absolute;
-  height: inherit;
+  height: 100%;
   top:var(--header_pad_tb);
   --buff: 0.5%;
-  border: 1px solid red;
+  border: var(--bound_box);
 }
 div.header_partition.header_left{
   left:var(--buff);
@@ -41,27 +47,131 @@ div.title_logo {
   height: var(--header_height);
   text-align: center;
   width: 47%;  
-  border: 1px solid red;
-  padding: calc(var(--height)/5);
-}
+  border: var(--bound_box);
+} 
 
 div.menu_links {
   float:right;
-  height: var(--header_height);
+  height: 100%;
   text-align: center;
-  width: 12%;  
-  min-width: 100px;
-  border: 1px solid red;
+  width: 12%; 
+  min-width: calc(5em + 1.5em);
+  border: var(--bound_box);
 }
 
 div.menu_links:hover {
-  background-color: rgb(49, 185, 172);
+  background-color: var(--bord_color);
 }
 
-a {
+a.header_links {
   display: block;
   color: white;
   font-size: 1.5em;
   text-decoration: none;
-  padding: 15px 0px;
+  padding-top: calc(var(--header_height) / 4);
 }
+
+div.map_box {
+  position: relative;
+  width: 99%;
+  height: 85vh;
+  margin-top: calc(var(--header_height) + 40px);
+  left:0.5%;
+  border: var(--bound_box);
+  overflow: hidden; /*THIS NEEDS TO CHANGE*/
+  z-index:0;
+  background-color: lightgreen;
+}
+
+div.search_box{
+  position: absolute;
+  top: 3vw;
+  left: 2vw;
+  height: 100px;
+  width: 300px;
+  border: var(--bound_box);
+}
+
+input.search_box {
+  font-size: 1.2em;
+  padding: 5px 0px 5px 15px;
+  border:2px solid var(--bord_color);
+  background-color: var(--back_color);
+  opacity: 0.7;
+  border-radius: 12px;
+  color: white;  
+  font-size: 1.2em;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+input.search_box::placeholder {
+  color: white;
+  opacity: 0.7;
+  font-size: 1.1em;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+input.location {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(50% - 6px);
+  width: 100%;
+}
+
+input.special{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: calc(50% - 6px);
+  width: calc(60% - 6px);
+}
+
+div.filter_day{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: calc(50% - 9px);
+  width: calc(40% - 6.5px);
+  font-size: 1.2em;
+  border:2px solid var(--bord_color);
+  background-color: var(--back_color);
+  opacity: 0.7;
+  border-radius: 12px;
+}
+
+input:focus, textarea:focus, select:focus{
+  outline: none;
+  font-size: 1.2em;
+}
+
+.dropdown_btn {
+  float: right;
+  height: 100%;
+  width: 40px;
+  background-image: url("../Frugality_App/pictures/dropdown_arrow.jpg");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: left center;
+  background-color: var(--back_color);
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  outline: none;
+  border: none;
+}
+.dropdown_btn:focus {
+  border-style: inset;
+  border-color: var(--bord_color);
+}
+
+a.search_box {
+  font-size: 1.2em;
+  color: white;
+  float: left;
+  height: 100%;
+  width: 40%;
+  padding: 4% 6%;
+  opacity: 0.7;
+}
+
+
