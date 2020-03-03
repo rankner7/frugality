@@ -112,13 +112,6 @@ input.search_box {
   font-family: 'Times New Roman', Times, serif;
 }
 
-input.search_box::placeholder {
-  color: black;
-  opacity: 0.4;
-  font-size: 1.1em;
-  font-family: 'Times New Roman', Times, serif;
-}
-
 input.location {
   position: absolute;
   top: 0;
@@ -133,6 +126,25 @@ input.special{
   left: 0;
   height: calc(50% - 6px);
   width: calc(60% - 6px);
+}
+
+input.day{
+  border: none;
+  background-color: var(--back_color);
+  width: 60%;
+  height: 90%;
+  opacity: 0.85;
+  color: black;  
+  font-size: 1.1em;
+  margin: 2px 0px 0px 5px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+input.search_box::placeholder{
+  color: black;
+  opacity: 0.4;
+  font-size: 1.1em;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 div.filter_day{
@@ -196,6 +208,18 @@ div.search_dropdown{
   overflow-x: hidden;
   background-color: white; /*rgb(209, 219, 238);*/
   opacity: 0.85;
+}
+
+div.search_dropdown::-webkit-scrollbar {
+  width: 5px;
+}
+div.search_dropdown::-webkit-scrollbar-track {
+  visibility: hidden;
+}
+
+div.search_dropdown::-webkit-scrollbar-thumb {
+  background-color: var(--hover_color);
+  border-radius: 3px;
 }
 
 div.location_search_results {

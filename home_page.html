@@ -24,25 +24,25 @@
             <div class="search_box">
                 <input id="Location" class="search_box location" type="text" placeholder="Location..." onkeyup="SearchAppear('location_results', 'Location')">
                 <div id="location_results" class="search_dropdown location_search_results">
-                    <ul id="locationList" class="search_box"></ul>
+                    <ul id="locationList" class="search_box" onclick="getSelectedListItem('Location')"></ul>
                 </div>
                 <input id="Special" class="search_box special" type="text" placeholder="Special..." onkeyup="SearchAppear('special_results', 'Special')"> 
                 <div id="special_results" class="search_dropdown specials_search_results">
-                    <ul id="specialList" class="search_box"></ul>
+                    <ul id="specialList" class="search_box" onclick="getSelectedListItem('Special')"></ul>
                 </div>
                 <div id="Day" class="filter_day">
-                    <a id="DayName" class="search_box">Day</a>
+                    <input id="DayName" class="day" type="text" placeholder="Day..." onkeyup="SearchAppear('day_results', 'Day')"></input>
                     <button class="dropdown_btn" onclick="SearchAppear('day_results', 'Day')"></button>
                 </div>
                 <div id="day_results" class="search_dropdown day_search_results">
-                    <ul id="dayList" class="search_box">
-                        <li id="day1" onclick="alert('Monday');">Monday</li>
-                        <li id="day2">Tuesday</li >
-                        <li id="day3">Wednesday</li>
-                        <li id="day4">Thursday</li>
-                        <li id="day5">Friday</li>
-                        <li id="day6">Saturday</li>
-                        <li id="day7">Sunday</li>
+                    <ul id="dayList" class="search_box" onclick="getSelectedListItem('DayName')">
+                        <li id="day1">Mon.</li>
+                        <li id="day2">Tues.</li >
+                        <li id="day3">Wed.</li>
+                        <li id="day4">Thur.</li>
+                        <li id="day5">Fri.</li>
+                        <li id="day6">Sat.</li>
+                        <li id="day7">Sun.</li>
                     </ul>
                 </div>
             </div>
@@ -72,6 +72,12 @@
                     li_container.appendChild(temp_li);
                 }
 
+            }
+
+            function getSelectedListItem(searchId){
+                var selected_response = document.querySelectorAll('li:hover');
+                var fill_value = selected_response[0].textContent;
+                document.getElementById(searchId).value = fill_value;
             }
 
             window.onclick = function(event){
