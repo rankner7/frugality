@@ -24,7 +24,7 @@
             <div class="search_box">
                 <input id="Location" class="search_box location" type="text" placeholder="Location..." onkeyup="SearchAppear('location_results', 'Location')">
                 <div id="location_results" class="search_dropdown location_search_results">
-                    <ul class="search_box">
+                    <ul id="locationList" class="search_box">
                         <li id="location1">Link1</li>
                         <li id="location2">Link2</li>
                         <li id="location3">Link3</li>
@@ -49,7 +49,7 @@
                 </div>
                 <input id="Special" class="search_box special" type="text" placeholder="Special..." onkeyup="SearchAppear('special_results', 'Special')"> 
                 <div id="special_results" class="search_dropdown specials_search_results">
-                    <ul class="search_box">
+                    <ul id="specialList" class="search_box">
                         <li id="special1">Link1</li>
                         <li id="special2">Link2</li >
                         <li id="special3">Link3</li>
@@ -77,7 +77,7 @@
                     <button class="dropdown_btn" onclick="SearchAppear('day_results', 'Day')"></button>
                 </div>
                 <div id="day_results" class="search_dropdown day_search_results">
-                    <ul class="search_box">
+                    <ul id="dayList" class="search_box">
                         <li id="day1">Monday</li>
                         <li id="day2">Tuesday</li >
                         <li id="day3">Wednesday</li>
@@ -88,7 +88,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div>          
 
         <p class="test">Test</p>
         
@@ -100,6 +100,15 @@
                 document.getElementById(dropDownId).style.display = "block";
                 document.getElementById(aboveBlockId).style.borderBottomLeftRadius = "0px";
                 document.getElementById(aboveBlockId).style.borderBottomRightRadius = "0px";
+
+                if (aboveBlockId == "Location"){
+                    var li_elements = document.getElementById('locationList').getElementsByTagName('li');
+                    var cnt;
+                    for (cnt = 0; cnt < li_elements.length; cnt++){
+                        var inner_txt = `Location ${li.elements.length - cnt}`;
+                        li_elements[cnt].innerText = inner_txt;
+                    }
+                } 
             }
 
             window.onclick = function(event){
@@ -125,17 +134,4 @@
                 
             }
         </script>
-        <!--
-        <script>
-            function myMap() {
-            var mapProp= {
-              center:new google.maps.LatLng(51.508742,-0.120850),
-              zoom:5,
-            };
-            var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-            }
-        </script>
-            
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqZJIRd9JPVR8QCIvElmXqqordIzWQjQM&callback=myMap"></script>
-    -->
 </html>
