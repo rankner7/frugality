@@ -4,7 +4,7 @@
         <link rel="stylesheet" type="text/css" href="home_stylesheet.css">
     </head>
 
-    <body>
+    <body onload="populateList('locationList', 'Location', 25);populateList('specialList', 'Special', 12);">
         <!-- WORKING HEADER -->
         <div class="header">
             <div class="header_partition header_left">
@@ -24,53 +24,11 @@
             <div class="search_box">
                 <input id="Location" class="search_box location" type="text" placeholder="Location..." onkeyup="SearchAppear('location_results', 'Location')">
                 <div id="location_results" class="search_dropdown location_search_results">
-                    <ul id="locationList" class="search_box">
-                        <li id="location1">Link1</li>
-                        <li id="location2">Link2</li>
-                        <li id="location3">Link3</li>
-                        <li id="location4">Link4</li>
-                        <li id="location5">Link5</li>
-                        <li id="location6">Link6</li>
-                        <li id="location7">Link7</li>
-                        <li id="location8">Link8</li>
-                        <li id="location9">Link9</li>
-                        <li id="location10">Link10</li>
-                        <li id="location12">Link11</li>
-                        <li id="location13">Link12</li>
-                        <li id="location14">Link13</li>
-                        <li id="location15">Link14</li>
-                        <li id="location16">Link15</li>
-                        <li id="location17">Link16</li>
-                        <li id="location18">Link17</li>
-                        <li id="location19">Link18</li>
-                        <li id="location20">Link19</li>
-                        <li id="location21">Link20</li>
-                    </ul>
+                    <ul id="locationList" class="search_box"></ul>
                 </div>
                 <input id="Special" class="search_box special" type="text" placeholder="Special..." onkeyup="SearchAppear('special_results', 'Special')"> 
                 <div id="special_results" class="search_dropdown specials_search_results">
-                    <ul id="specialList" class="search_box">
-                        <li id="special1">Link1</li>
-                        <li id="special2">Link2</li >
-                        <li id="special3">Link3</li>
-                        <li id="special4">Link4</li>
-                        <li id="special5">Link5</li>
-                        <li id="special6">Link6</li>
-                        <li id="special7">Link7</li>
-                        <li id="special8">Link8</li>
-                        <li id="special9">Link9</li>
-                        <li id="special10">Link10</li>
-                        <li id="special12">Link11</li>
-                        <li id="special13">Link12</li>
-                        <li id="special14">Link13</li>
-                        <li id="special15">Link14</li>
-                        <li id="special16">Link15</li>
-                        <li id="special17">Link16</li>
-                        <li id="special18">Link17</li>
-                        <li id="special19">Link18</li>
-                        <li id="special20">Link19</li>
-                        <li id="special21">Link20</li>
-                    </ul>
+                    <ul id="specialList" class="search_box"></ul>
                 </div>
                 <div id="Day" class="filter_day">
                     <a id="DayName" class="search_box">Day</a>
@@ -78,7 +36,7 @@
                 </div>
                 <div id="day_results" class="search_dropdown day_search_results">
                     <ul id="dayList" class="search_box">
-                        <li id="day1">Monday</li>
+                        <li id="day1" onclick="alert('Monday');">Monday</li>
                         <li id="day2">Tuesday</li >
                         <li id="day3">Wednesday</li>
                         <li id="day4">Thursday</li>
@@ -100,15 +58,20 @@
                 document.getElementById(dropDownId).style.display = "block";
                 document.getElementById(aboveBlockId).style.borderBottomLeftRadius = "0px";
                 document.getElementById(aboveBlockId).style.borderBottomRightRadius = "0px";
+            }
 
-                if (aboveBlockId == "Location"){
-                    var li_elements = document.getElementById('locationList').getElementsByTagName('li');
-                    var cnt;
-                    for (cnt = 0; cnt < li_elements.length; cnt++){
-                        var inner_txt = `Location ${li.elements.length - cnt}`;
-                        li_elements[cnt].innerText = inner_txt;
-                    }
-                } 
+            function populateList(ListId, name, num_to_add){
+                var cnt, num_to_add;
+                var li_container = document.getElementById(ListId);
+                var li_elements = li_container.getElementsByTagName('li');
+                var num_elements = li_elements.length;
+                for (cnt = num_elements; cnt < num_to_add + num_elements; cnt++){
+                    var temp_li = document.createElement('li');
+                    var inside = document.createTextNode(`${name} ${cnt}`);
+                    temp_li.appendChild(inside);
+                    li_container.appendChild(temp_li);
+                }
+
             }
 
             window.onclick = function(event){

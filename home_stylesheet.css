@@ -18,7 +18,7 @@ div.header {
   border: 3px solid var(--bord_color);
   background-color: var(--back_color); /*var(--back_color);*/
   opacity: 0.8;
-  overflow: visible; /*THIS NEEDS TO CHANGE*/
+  overflow: hidden; /*THIS NEEDS TO CHANGE*/
   z-index: 100;
 }
 
