@@ -20,13 +20,22 @@
         </div>
 
         <!-- MAP AND SEARCH BARS -->
-        <div class="map_box">
+        <div class="map_box" id="googleMap">
             <div class="search_box">
-                <input id="Location" class="search_box location" type="text" placeholder="Location...">
-                <input id="search_box_gen" class="search_box special" type="text" placeholder="Special...">
-                <div class="filter_day">
-                    <a class="search_box">Day</a>
-                    <button class="dropdown_btn"></button>
+                <input id="Location" class="search_box location" type="text" placeholder="Location..." onkeyup="SearchAppear('location_results', 'Location')">
+                <div id="location_results" class="search_dropdown location_search_results">
+                    <p class="test">Test</p>
+                </div>
+                <input id="Special" class="search_box special" type="text" placeholder="Special..." onkeyup="SearchAppear('special_results', 'Special')"> 
+                <div id="special_results" class="search_dropdown specials_search_results">
+                    <p class="test">Test</p>
+                </div>
+                <div id="Day" class="filter_day">
+                    <a id="DayName" class="search_box">Day</a>
+                    <button class="dropdown_btn" onclick="SearchAppear('day_results', 'Day')"></button>
+                </div>
+                <div id="day_results" class="search_dropdown day_search_results">
+                    <p class="test">Test</p>
                 </div>
             </div>
         </div>
@@ -34,4 +43,64 @@
         <p class="test">Test</p>
         
         </body>
+
+        <script>
+
+            function SearchAppear(dropDownId, aboveBlockId){
+                document.getElementById(dropDownId).style.display = "block";
+                document.getElementById(aboveBlockId).style.borderBottomLeftRadius = "0px";
+                document.getElementById(aboveBlockId).style.borderBottomRightRadius = "0px";
+            }
+
+            window.onclick = function(event){
+                if(!(event.target.matches('.search_dropdown') || event.target.matches('.dropdown_btn'))){
+                    var i, disp_style;
+                    var drops = document.getElementsByClassName('search_dropdown');
+                    for(i = 0; i<drops.length; i++){
+                        disp_style = drops[i].style.display;
+                        if (!(disp_style == "none")){
+                            drops[i].style.display = "none";
+                        }
+                    }
+                    var tops = ["Location", "Special", "Day"];
+                    for (i = 0; i < tops.length; i++){
+                        var top_round = document.getElementById(tops[i]).style.borderTopLeftRadius;
+                        var bottom_round = document.getElementById(tops[i]).style.borderBottomLeftRadius;
+                        if (bottom_round == "0px"){
+                            document.getElementById(tops[i]).style.borderBottomLeftRadius = top_round;
+                            document.getElementById(tops[i]).style.borderBottomRightRadius = top_round;
+                        }
+                    }
+                }
+                
+            }
+        </script>
+        <!--
+        <ul>
+                        <li>Link1</li>
+                        <li>Link2</li>
+                        <li>Link3</li>
+                        <li>Link4</li>
+                        <li>Link5</li>
+                        <li>Link6</li>
+                        <li>Link7</li>
+                        <li>Link8</li>
+                        <li>Link9</li>
+                        <li>Link10</li>
+                        <li>Link11</li>
+                        <li>Link12</li>
+                        <li>Link13</li>
+                    </ul>
+        <script>
+            function myMap() {
+            var mapProp= {
+              center:new google.maps.LatLng(51.508742,-0.120850),
+              zoom:5,
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            }
+        </script>
+            
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqZJIRd9JPVR8QCIvElmXqqordIzWQjQM&callback=myMap"></script>
+    -->
 </html>

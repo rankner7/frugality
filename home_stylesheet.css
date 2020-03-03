@@ -1,9 +1,10 @@
 :root{
   --header_pad_tb: 0px;
   --header_height: 6vh;
-  --back_color: turquoise;
-  --bord_color: rgb(49, 185, 172);
-  --bound_box: none; /*1px solid red;*/
+  --back_color: white;
+  --bord_color: blue;
+  --hover_color: cornflowerblue;
+  --bound_box: nonte; /*1px solid red;*/
 
 }
 div.header {
@@ -15,7 +16,8 @@ div.header {
   left:0.5%;
   padding: var(--header_pad_tb) 0px;
   border: 3px solid var(--bord_color);
-  background-color: var(--back_color);
+  background-color: var(--back_color); /*var(--back_color);*/
+  opacity: 0.8;
   overflow: visible; /*THIS NEEDS TO CHANGE*/
   z-index: 100;
 }
@@ -60,12 +62,15 @@ div.menu_links {
 }
 
 div.menu_links:hover {
-  background-color: var(--bord_color);
+  /*background-color: var(--hover_color);
+  opacity: 0.4;*/
+  border: 2px ridge var(--bord_color);
+  height: calc(100% - 4px);
 }
 
 a.header_links {
   display: block;
-  color: white;
+  color: var(--bord_color);
   font-size: 1.5em;
   text-decoration: none;
   padding-top: calc(var(--header_height) / 4);
@@ -77,10 +82,15 @@ div.map_box {
   height: 85vh;
   margin-top: calc(var(--header_height) + 40px);
   left:0.5%;
-  border: var(--bound_box);
-  overflow: hidden; /*THIS NEEDS TO CHANGE*/
+  /*border: 4px outset var(--bord_color); var(--bound_box);*/
+  box-shadow: 2px 2px 7px 5px var(--bord_color);
+  overflow: hidden;
   z-index:0;
-  background-color: lightgreen;
+  background-image: url(../Frugality_App/pictures/map.png);
+  background-position: top left;
+  background-size: 100% 100%;
+  background-repeat: none;
+
 }
 
 div.search_box{
@@ -97,16 +107,16 @@ input.search_box {
   padding: 5px 0px 5px 15px;
   border:2px solid var(--bord_color);
   background-color: var(--back_color);
-  opacity: 0.7;
+  opacity: 0.85;
   border-radius: 12px;
-  color: white;  
+  color: black;  
   font-size: 1.2em;
   font-family: 'Times New Roman', Times, serif;
 }
 
 input.search_box::placeholder {
-  color: white;
-  opacity: 0.7;
+  color: black;
+  opacity: 0.4;
   font-size: 1.1em;
   font-family: 'Times New Roman', Times, serif;
 }
@@ -136,7 +146,7 @@ div.filter_day{
   font-size: 1.2em;
   border:2px solid var(--bord_color);
   background-color: var(--back_color);
-  opacity: 0.7;
+  opacity: 0.85;
   border-radius: 12px;
 }
 
@@ -149,13 +159,13 @@ input:focus, textarea:focus, select:focus{
   float: right;
   height: 100%;
   width: 40px;
-  background-image: url("../Frugality_App/pictures/dropdown_arrow.jpg");
+  background-image: url("../Frugality_App/pictures/Sort_down_font_awesome.svg");
   background-repeat: no-repeat;
   background-size: 30px 30px;
   background-position: left center;
   background-color: var(--back_color);
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
   outline: none;
   border: none;
 }
@@ -166,12 +176,48 @@ input:focus, textarea:focus, select:focus{
 
 a.search_box {
   font-size: 1.2em;
-  color: white;
+  color: black;
   float: left;
   height: 100%;
   width: 40%;
   padding: 4% 6%;
-  opacity: 0.7;
+  opacity: 0.4;
+}
+
+div.search_dropdown{
+  position: absolute;
+  max-height: 400px;
+  z-index: 1;
+  visibility: visible;
+  display: none;
+  border: 2px solid var(--bord_color);
+  border-top: none;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  overflow: auto;
+  background-color: white; /*rgb(209, 219, 238);*/
+  opacity: 0.85;
+}
+
+div.location_search_results {
+  top: calc(50% - 6px);
+  left: 0px;
+  width: calc(100% - 4px);
+  height: 300px;
+}
+
+div.specials_search_results {
+  top: 100%;
+  left: 0;
+  width: calc(60% - 10px);
+  height: 300px;
+}
+
+div.day_search_results {
+  top: 100%;
+  left: calc(60% + 3px);
+  width: calc(40% - 7px);
+  height: 300px;
 }
 
 
