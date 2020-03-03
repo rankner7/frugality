@@ -3,7 +3,7 @@
   --header_height: 6vh;
   --back_color: white;
   --bord_color: blue;
-  --hover_color: cornflowerblue;
+  --hover_color: rgb(192, 208, 238);
   --bound_box: nonte; /*1px solid red;*/
 
 }
@@ -62,8 +62,6 @@ div.menu_links {
 }
 
 div.menu_links:hover {
-  /*background-color: var(--hover_color);
-  opacity: 0.4;*/
   border: 2px ridge var(--bord_color);
   height: calc(100% - 4px);
 }
@@ -194,7 +192,8 @@ div.search_dropdown{
   border-top: none;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   background-color: white; /*rgb(209, 219, 238);*/
   opacity: 0.85;
 }
@@ -203,21 +202,38 @@ div.location_search_results {
   top: calc(50% - 6px);
   left: 0px;
   width: calc(100% - 4px);
-  height: 300px;
+  max-height: 300px;
 }
 
 div.specials_search_results {
   top: 100%;
   left: 0;
   width: calc(60% - 10px);
-  height: 300px;
+  max-height: 300px;
 }
 
 div.day_search_results {
   top: 100%;
   left: calc(60% + 3px);
   width: calc(40% - 7px);
-  height: 300px;
+  max-height: 300px;
 }
 
+ul.search_box {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: inherit;
+}
+
+ul.search_box > li{
+  color: black;
+  padding: 10px 0px 10px 15px;
+  font-size: 1.1em;
+  width: 1000px;
+}
+
+ul.search_box > li:hover{
+  background-color: var(--hover_color);
+}
 
